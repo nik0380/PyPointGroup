@@ -1,0 +1,1 @@
+pyuic5 pgMainForm.ui -o ..\pypointgroup\gui\ui\pgMainForm_ui.py
