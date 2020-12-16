@@ -10,4 +10,10 @@ The **PointGroup** software allows you to visualize point symmetry groups (*Open
 ## Installation
 To install the software use the command:
 
-`pip install pypointgroup`
+`pip install PyPointGroup`
+
+## Running the program
+
+To run the program use the command
+
+`pypointgroup`
