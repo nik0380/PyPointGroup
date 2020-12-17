@@ -56,9 +56,8 @@ class PGMainForm(QMainWindow):
 
         gui = self.ui
 
-        #gui.lvGroups.setViewMode(QListWidget.IconMode)
         gui.lvGroups.setSpacing(10)
-        gui.lvGroups.setIconSize(QSize(100, 100))
+        gui.lvGroups.setIconSize(QSize(150, 100))
         gui.lvGroups.setResizeMode(QListWidget.Adjust)
 
         try:
