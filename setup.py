@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 
 def load_description():
-    with open('README.md ','r') as f:
+    with open('README.md','r') as f:
         text = f.read()
     return text
 
 setup(
     name='PyPointGroup',
-    version='2.0.2',
+    version='2.0.4',
     packages=['pypointgroup', 'pypointgroup.gl', 'pypointgroup.gui', 'pypointgroup.gui.ui', 'pypointgroup.core'],
     url='https://github.com/nik0380/pypointgroup',
     license='MIT',

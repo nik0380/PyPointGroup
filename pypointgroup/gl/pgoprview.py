@@ -3,7 +3,7 @@ from PyQt5.QtCore import QSize, QRect
 from PyQt5.QtWidgets import QListWidget, QListWidgetItem, QMessageBox
 from pypointgroup.core.Operators import Operator
 from pypointgroup.gui.pgContextMenu import ContextMenu
-from PyQt5.QtGui import QImage, QPixmap, QIcon, QPainter, QColor, QFont
+from PyQt5.QtGui import QImage, QPixmap, QIcon, QPainter, QColor, QFont, QFontMetrics
 from pypointgroup.gui.tools import TryExcept, LoadIcon
 
 
@@ -15,6 +15,7 @@ class PGOperatorListView(QListWidget):
         super().__init__(parent)
         self.pg = list()
         self.init_control()
+        self.font_size = None
 
     def init_control(self):
         self.setViewMode(QListWidget.IconMode)
@@ -64,9 +65,24 @@ class PGOperatorListView(QListWidget):
         cv.drawRect(1,1,self.ICON_SIZE-2, self.ICON_SIZE-2)
 
         font = cv.font()
-        font.setPointSize(10)
         font.setBold(True)
 
+        if not self.font_size:
+
+            font.setPointSize(10)
+            fm = QFontMetrics(font)
+            w10 = fm.width(' -1  -1  -1 ')
+
+            font.setPointSize(12)
+            fm = QFontMetrics(font)
+            w12 = fm.width(' -1  -1  -1 ')
+
+            k = (w12 - w10) / 2
+            b = w10 - k*10
+            s = (self.ICON_SIZE - b) / k
+            self.font_size = int(s)
+
+        font.setPointSize(self.font_size)
         cv.setFont(font)
 
         cv.setPen(QColor('red'))

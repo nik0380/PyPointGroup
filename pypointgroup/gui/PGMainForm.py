@@ -1,9 +1,11 @@
+from PyQt5.QtCore import QSize
+
 from .ui.pgMainForm_ui import Ui_MainWindow
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QListWidgetItem, QListWidget
 from PyQt5.QtGui import QImage, QIcon
 from pypointgroup.core.pgroupsgen import POINT_GROUPS_GENETATORS, POINT_GROUPS_LIST
 from pypointgroup.core.symmetry import Symmetry, Operator, np
-from pypointgroup.gui.tools import TryExcept, LoadIcon
+from pypointgroup.gui.tools import TryExcept, LoadIcon, GetIconPath
 
 
 class PGMainForm(QMainWindow):
@@ -34,7 +36,7 @@ class PGMainForm(QMainWindow):
         self.setWindowIcon(icon)
 
         gui = self.ui
-        gui.lvGroups.addItems(POINT_GROUPS_LIST)
+        self.loadPointGroups()
 
         self.sym = Symmetry()
         gui.cbOperators.addItems(self.sym.keys())
@@ -49,6 +51,27 @@ class PGMainForm(QMainWindow):
 
         gui.tabWidget.setCurrentIndex(0)
 
+    @TryExcept
+    def loadPointGroups(self):
+
+        gui = self.ui
+
+        #gui.lvGroups.setViewMode(QListWidget.IconMode)
+        gui.lvGroups.setSpacing(10)
+        gui.lvGroups.setIconSize(QSize(100, 100))
+        gui.lvGroups.setResizeMode(QListWidget.Adjust)
+
+        try:
+            for i in range(1,33):
+                img_path = GetIconPath("pg_img_%d.png" % i)
+                ico = QIcon(img_path)
+                item = QListWidgetItem(ico,'#%d' % i)
+                gui.lvGroups.addItem(item)
+                print(f"Image {img_path} loaded ... [OK]")
+        except Exception as ex:
+            print("WARNING: Can't load groups: ", str(ex))
+            gui.lvGroups.clear()
+            gui.lvGroups.addItems(POINT_GROUPS_LIST)
 
     @TryExcept
     def OnGroupClick(self):
