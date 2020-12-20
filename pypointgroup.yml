@@ -1,0 +1,5 @@
+name: pointgroup
+dependencies:
+  - numpy
+  - PyQt5
+  - PyOpenGL
