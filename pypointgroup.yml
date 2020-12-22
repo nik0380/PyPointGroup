@@ -1,5 +1,9 @@
 name: pointgroup
+channels:
+  - conda-forge
 dependencies:
   - numpy
   - PyQt5
   - PyOpenGL
+  - pip:
+      - PyPointGroup

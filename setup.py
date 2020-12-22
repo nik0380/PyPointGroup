@@ -13,7 +13,7 @@ def load_description():
 
 setup(
     name='PyPointGroup',
-    version='2.0.5',
+    version='2.0.6',
     packages=['pypointgroup', 'pypointgroup.gl', 'pypointgroup.gui', 'pypointgroup.gui.ui', 'pypointgroup.core'],
     url='https://github.com/nik0380/pypointgroup',
     license='MIT',
@@ -25,5 +25,5 @@ setup(
     keywords=['symmetry','group','crystallography','xray'],
     install_requires=["PyQt5", "numpy","PyOpenGL"],
     include_package_data=True,
-    entry_points={'console_scripts': ['pypointgroup=pypointgroup:main',],},
+    entry_points={'gui_scripts': ['pypointgroup=pypointgroup:main',],},
 )
