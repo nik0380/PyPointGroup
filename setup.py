@@ -13,7 +13,8 @@ def load_description():
 
 setup(
     name='PyPointGroup',
-    version='2.0.6',
+    version='2.0.7',
+    python_requires='>3.4',
     packages=['pypointgroup', 'pypointgroup.gl', 'pypointgroup.gui', 'pypointgroup.gui.ui', 'pypointgroup.core'],
     url='https://github.com/nik0380/pypointgroup',
     license='MIT',
