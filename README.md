@@ -12,8 +12,38 @@ To install the software use the command:
 
 `pip install PyPointGroup`
 
+### Dependencies
+
+The package uses the following dependencies:
+1. `NumPy`
+2. `PyQt5` or `PyQt >= 5.0`
+3. `PyOpenGL`
+4. `PyShortCuts` (optionally, to create a program shortcut)
+
+### Conda
+
+Conda environment: 
+
+    name: pointgroup
+    channels:
+    - conda-forge
+    dependencies:
+    - numpy
+    - PyQt>=5.0
+    - PyOpenGL
+    - pip
+    - pip:
+          - PyPointGroup
+
+
 ## Running the program
 
 To run the program use the command
 
 `pypointgroup`
+
+After starting the program, you can create a shortcut to the **PointGroup**.
+To do this, in the **Tool** menu item, select *"Create shortcuts..."*. 
+You must first install the `PyShortCuts` package:
+
+`pip install pyshortcuts`
