@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QListWidgetIt
 from PyQt5.QtGui import QImage, QIcon
 from pypointgroup.core.pgroupsgen import POINT_GROUPS_GENETATORS, POINT_GROUPS_LIST
 from pypointgroup.core.symmetry import Symmetry, Operator, np
-from pypointgroup.gui.tools import TryExcept, LoadIcon, GetIconPath
+from pypointgroup.gui.tools import TryExcept, LoadIcon, GetIconPath, CreateShortCuts
 
 
 class PGMainForm(QMainWindow):
@@ -24,6 +24,7 @@ class PGMainForm(QMainWindow):
         gui.actionExit.triggered.connect(self.OnClose)
         gui.actionSave_Image.triggered.connect(self.OnSaveImage)
         gui.actionAbout_PointGroup.triggered.connect(self.OnAbout)
+        gui.actionCreate_shortcuts.triggered.connect(self.OnCreateShortCuts)
         gui.cbOperators.currentTextChanged.connect(self.OnChangeOperator)
         gui.bAddOperator.clicked.connect(self.OnAddOperator)
         gui.bGenGroup.clicked.connect(self.OnGenerateClick)
@@ -121,3 +122,7 @@ class PGMainForm(QMainWindow):
         gui = self.ui
         ng, g = self.sym.GenGroup(gui.lvOperators.getOperators())
         gui.glView.setPointGroup(ng)
+
+    @TryExcept
+    def OnCreateShortCuts(self):
+        CreateShortCuts(self)

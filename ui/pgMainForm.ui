@@ -255,7 +255,14 @@
     </property>
     <addaction name="actionAbout_PointGroup"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionCreate_shortcuts"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionSave_Image">
@@ -271,6 +278,11 @@
   <action name="actionAbout_PointGroup">
    <property name="text">
     <string>About PointGroup...</string>
+   </property>
+  </action>
+  <action name="actionCreate_shortcuts">
+   <property name="text">
+    <string>Create shortcuts...</string>
    </property>
   </action>
  </widget>
