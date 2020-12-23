@@ -62,6 +62,9 @@ class SymmetryGroup(set):
             self.update(new)
             flag = len(self) > lx1
 
+            if lx1 > 48:
+                raise Exception("Group generators are set incorrectly!")
+
         return self
 
     def toHTML(self)->str:
