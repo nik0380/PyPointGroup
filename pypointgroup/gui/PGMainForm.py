@@ -81,6 +81,7 @@ class PGMainForm(QMainWindow):
         if ix:
             i = ix.row()
             ng, g = self.sym.GenGroup(POINT_GROUPS_GENETATORS[i])
+            gui.tbViewer.setHtml(g.toHTML())
             gui.glView.setPointGroup(ng)
 
     def OnClose(self):
@@ -121,6 +122,7 @@ class PGMainForm(QMainWindow):
     def OnGenerateClick(self):
         gui = self.ui
         ng, g = self.sym.GenGroup(gui.lvOperators.getOperators())
+        gui.lvOperators.setOperators(g)
         gui.glView.setPointGroup(ng)
 
     @TryExcept

@@ -1,3 +1,5 @@
+from collections import Iterable
+
 from PyQt5 import QtGui
 from PyQt5.QtCore import QSize, QRect
 from PyQt5.QtWidgets import QListWidget, QListWidgetItem, QMessageBox
@@ -36,6 +38,13 @@ class PGOperatorListView(QListWidget):
         self.addItem(item)
         self.ui.bGenGroup.setEnabled(self.count() > 0)
 
+    def setOperators(self, oprs: Iterable):
+
+        self.pg.clear()
+        self.clear()
+
+        for opr in oprs:
+            self.addOperator(opr)
 
     def removeOperator(self, index:int):
         self.pg.pop(index)
