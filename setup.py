@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-
+from pypointgroup import VERSION
 #-----------------------------------------------------------------------------------------
 
 def load_description():
@@ -13,7 +13,7 @@ def load_description():
 
 setup(
     name='PyPointGroup',
-    version='2.0.10',
+    version=VERSION,
     python_requires='>3.4',
     packages=['pypointgroup', 'pypointgroup.gl', 'pypointgroup.gui', 'pypointgroup.gui.ui', 'pypointgroup.core'],
     url='https://github.com/nik0380/pypointgroup',

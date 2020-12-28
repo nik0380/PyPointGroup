@@ -95,7 +95,7 @@ class SymmetryGroup(set):
 
         buf = StringIO()
 
-        buf.write(f'<table cellspacing="2" border="1" cellpadding="5" width="{n*40}">\n')
+        buf.write(f'<table cellspacing="2" border="1" cellpadding="5" width="{n*60}">\n')
 
         for row in data:
             buf.write("<tr>")

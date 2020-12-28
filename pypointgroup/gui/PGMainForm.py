@@ -1,11 +1,12 @@
 from PyQt5.QtCore import QSize
-
+from pypointgroup.Version import VERSION, DATE
 from .ui.pgMainForm_ui import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QListWidgetItem, QListWidget
 from PyQt5.QtGui import QImage, QIcon
 from pypointgroup.core.pgroupsgen import POINT_GROUPS_GENETATORS, POINT_GROUPS_LIST
 from pypointgroup.core.symmetry import Symmetry, Operator, np
 from pypointgroup.gui.tools import TryExcept, LoadIcon, GetIconPath, CreateShortCuts
+from datetime import date
 
 
 class PGMainForm(QMainWindow):
@@ -96,8 +97,13 @@ class PGMainForm(QMainWindow):
             img.save(path)
 
     def OnAbout(self):
-        QMessageBox.about(self, "About PointGroup",
-                          'PointGroup v. 2.0\n(C) 2020. Nikolay V. Somov\ne-mail: somov@phys.unn.ru')
+        text = f"""
+PointGroup v. {VERSION}
+(C) 2020 - {date.today().year}. Nikolay V. Somov
+Build: {DATE}
+e-mail: somov@phys.unn.ru
+        """
+        QMessageBox.about(self, "About PointGroup", text)
 
     @TryExcept
     def OnChangeOperator(self):
@@ -124,6 +130,7 @@ class PGMainForm(QMainWindow):
         ng, g = self.sym.GenGroup(gui.lvOperators.getOperators())
         gui.lvOperators.setOperators(g)
         gui.glView.setPointGroup(ng)
+        gui.tbViewer.setHtml(g.toHTML())
 
     @TryExcept
     def OnCreateShortCuts(self):

@@ -1,0 +1,21 @@
+package:
+  name: pypointgroup
+  version: 2.0.11
+
+build:
+  number: 1
+
+channels:
+  - conda-forge
+  - gsecars
+
+requirements:
+  run:
+    - python
+    - numpy
+    - pyqt>=5.0
+    - pyopengl
+#    - pyshortcuts
+
+about:
+  summary: Point group symmetry study software

@@ -21,7 +21,11 @@ The package uses the following dependencies:
 3. `PyOpenGL`
 4. `PyShortCuts` (optionally, to create a program shortcut)
 
-### Conda
+### Conda/Anaconda
+
+To install the software use the command:
+
+`conda install -c nik0380 pypointgroup`
 
 Conda environment: 
 
