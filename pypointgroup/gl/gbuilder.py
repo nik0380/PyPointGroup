@@ -40,22 +40,22 @@ class GraphicsBuilder:
         glEnable(GL_TEXTURE_2D)
         self.tex = glGenTextures(1)
 
-        self._load_texture('2.bmp', a_2)
-        self._load_texture('3.bmp', a_3)
-        self._load_texture('4.bmp', a_4)
-        self._load_texture('6.bmp', a_6)
-        self._load_texture('4i.bmp', a_4i)
-        self._load_texture('3i.bmp', a_3i)
-        self._load_texture('6i.bmp', a_6i)
+        self._load_texture('2.BMP', a_2)
+        self._load_texture('3.BMP', a_3)
+        self._load_texture('4.BMP', a_4)
+        self._load_texture('6.BMP', a_6)
+        self._load_texture('4I.BMP', a_4i)
+        self._load_texture('3I.BMP', a_3i)
+        self._load_texture('6I.BMP', a_6i)
 
-        self._load_texture('2SP.bmp', a_2sg)
+        self._load_texture('2SP.BMP', a_2sg)
         self._load_texture('21SPv.bmp', a_21sgv)
         self._load_texture('21SPh.bmp', a_21sgh)
 
-        self._load_texture('m.bmp',  m_m)
-        self._load_texture('ma.bmp', m_a)
-        self._load_texture('mb.bmp', m_b)
-        self._load_texture('md.bmp', m_d)
+        self._load_texture('M.bmp',  m_m)
+        self._load_texture('Ma.bmp', m_a)
+        self._load_texture('Mb.bmp', m_b)
+        self._load_texture('Md.bmp', m_d)
 
     def GetCub(self, x,y,z,a):
 
