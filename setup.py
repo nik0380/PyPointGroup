@@ -24,7 +24,7 @@ setup(
     long_description=load_description(),
     long_description_content_type='text/markdown',
     keywords=['symmetry','group','crystallography','xray'],
-    install_requires=["PyQt5", "numpy","PyOpenGL"],
+    install_requires=["PyQt5", "numpy","PyOpenGL","pyshortcuts"],
     include_package_data=True,
     entry_points={'gui_scripts': ['pypointgroup=pypointgroup:main',],},
 )

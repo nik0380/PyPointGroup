@@ -35,11 +35,14 @@ def CreateShortCuts(parent):
     if sys.platform.startswith('win'):
         bindir = 'Scripts'
         name = name + '.exe'
+        run_path = pt.join(sys.prefix, bindir, name)
+    else:
+        home = pt.expanduser("~")
+        run_path = pt.join(home, ".local", "bin", name)
 
-    run_path = pt.join(sys.prefix, bindir, name)
 
     if not pt.exists(run_path):
-
+        # print("Path ", run_path, " is not exist!")
         p_path, _ = pt.split(pt.dirname(__file__))
         p_path, _ = pt.split(p_path)
         run_path = pt.join(p_path, "pypointgroup.py")
